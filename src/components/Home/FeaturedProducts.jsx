@@ -18,7 +18,11 @@ const FeaturedProducts = () => {
       <h2>Featured Products</h2>
 
       <div className="align_center featured_products_list">
-        {error && <em className="form_error">{error}</em>}
+   {error && (
+  <em className="form_error">
+    {error?.response?.data?.message || error?.message || "Something went wrong"}
+  </em>
+)}
         {data &&
           data.map((product) => (
             <ProductCard key={product._id} product={product} />

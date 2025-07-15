@@ -18,7 +18,11 @@ const ProductsSidebar = () => {
       <h2>Category</h2>
 
       <div className="category_links">
-        {error && <em className="form_error">{error}</em>}
+    {error && (
+  <em className="form_error">
+    {error?.response?.data?.message || error?.message || "Something went wrong"}
+  </em>
+)}
         {categories &&
           categories.map((category) => (
             <LinkWithIcon

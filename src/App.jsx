@@ -115,14 +115,15 @@ const App = () => {
 
   return (
     <UserContext.Provider value={user}>
-      <CartContext.Provider
-        value={{
-          cart,
-          addToCart,
-          removeFromCart,
-          updateCart,
-        }}
-      >
+    <CartContext.Provider
+  value={{
+    cart,
+    addToCart,
+    removeFromCart,
+    updateCart,
+    setCart: (newCart) => dispatchCart({ type: "GET_CART", payload: { products: newCart } }),
+  }}
+>
         <div className="app">
           <Navbar />
           <main>
